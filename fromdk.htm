@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #frm1 {
+            width: 600px;
+            margin: auto;
+            border: 2px solid darkslategrey;
+            padding: 10px 18px;
+        }
+        
+        #frm1>p {
+            display: grid;
+            grid-template-columns: 90px auto;
+        }
+        
+        #frm1 label {
+            color: darkslategray;
+        }
+        
+        #frm1 .txt {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid lightcoral;
+            vertical-align: middle;
+        }
+        
+        #frm1 button {
+            width: 120px;
+            height: 40px;
+        }
+        
+        #frm1 textarea.txt {
+            vertical-align: top;
+        }
+        
+        #frm1 #baoloi {
+            background: darksalmon;
+            color: ghostwhite;
+            text-align: center;
+        }
+        
+        #frm1 .loi {
+            padding: 6px;
+            border: 1px solid red;
+            background: yellow;
+        }
+        
+        button {
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="frm1" method="post" onsubmit="return kiemtra()" action="xulydangky.php">
+        <h2>Đăng Kí Thành Viên</h2>
+        <p>
+            <label>Mã số sinh viên</label>
+            <input type="text" class="txt" id="masv" name="tendangnhap" placeholder="Mã số sinh viên" autocomplete="off" autofocus>
+        </p>
+        <!-- <p>
+            <label>Mật khẩu</label>
+            <input type="password" class="txt" id="matkhau" name="matkhau" placeholder="Mật khẩu 6 đến 20 ký tự" autocomplete="new-password">
+        </p> -->
+        <p>
+            <label>Họ tên</label>
+            <input type="text" class="txt" id="hoten" name="hoten" placeholder="Nhập họ tên của bạn">
+        </p>
+        <p>
+            <label>Email</label>
+            <input type="email" class="txt" id="email" name="email" placeholder="Nhập email của bạn">
+        </p>
+        <p>
+            <label>Giói tính</label>
+            <span id="chonphai">             
+              <input type="radio" name="phai" value="Nam"><label>Nam</label>
+              <input type="radio" name="phai" value="Nữ"><label>Nữ</label><br>
+          </span>
+        </p>
+        <p>
+            <label>Sở thích</label>
+            <span id="chonsothich">
+            <input type="checkbox" class="sothich" name="st[]">Dọc sách 
+            <input type="checkbox" class="sothich" name="st[]">Du Lịch 
+            <input type="checkbox" class="sothich" name="st[]">Âm thực
+            <input type="checkbox" class="sothich" name="st[]">Âm nhạc 
+            <input type="checkbox" class="sothich" name="st[]">khác
+           </span>
+        </p>
+        <p>
+            <label>Quốc tịch</label>
+            <select name="quoctich" id="quoctich" class="txt">
+            <option value="0">Chọn quốc tịch </option>
+            <option value="1">Việt Nam</option>
+            <option value="2">Nga </option>
+            <option value="3">Nhật bản </option>
+          </select>
+        </p>
+        <p>
+            <label>Ghi Chú </label>
+            <textarea class="txt" id="ghichu" name="ghichu" rows="6" placeholder="Ghi chú bản thân"></textarea>
+        </p>
+        </p>
+        <p> <label></label> <span id="baoloi"></span> </p>
+        <p>
+            <label></label>
+            <button type="submit" name="btndangky" value="nut">Đăng ký</button>
+        </p>
+    </form>
+</body>
+
+</html>
+<script>
+    function kiemtra() {
+        var loi = "";
+        // kiểm tra mã số sinh viên
+        // var tdn = document.getElementById("tendangnhap");
+        // if (tdn.value == "") {
+        //     tdn.className = "loi";
+        //     loi += "Tên đăng nhập không được bỏ trống<br>";
+        // } else if (tdn.value.length <= 6) {
+        //     tdn.className = "loi";
+        //     loi += "Tên đăng nhập quá ngắn<br>";
+        // } else if (tdn.value.length > 10) {
+        //     tdn.className = "loi";
+        //     loi += "Tên đăng nhập quá dài<br>";
+        // } else tdn.className = "txt";
+        var masv = document.getElementById("masv");
+        if (masv.value == "") {
+            masv.className = "loi";
+            loi += "Mã số sinh viên không được bỏ trống<br>";
+
+        } else if (masv.value.length != 7) {
+            masv.className = "loi";
+            loi += "Mã sinh viên không đúng 7 kí tự <br>";
+        } else masv.className = "txt";
+        // // kiểm tra mật khẩu : text + length 
+        // var mk = document.getElementById("matkhau");
+        // if (mk.value == "") {
+        //     mk.className = "loi";
+        //     loi += "Mật khẩu không được bỏ trống<br>";
+        // } else if (mk.value.length <= 6) {
+        //     mk.className = "loi";
+        //     loi += "Mật khẩu quá ngắn<br>";
+        // } else if (mk.value.length > 20) {
+        //     mk.className = "loi";
+        //     loi += "Mật khẩu quá dài<br>";
+        // } else mk.className = "txt";
+        // kiểm tra họ tên : text
+        var hoten = document.getElementById("hoten");
+        if (hoten.value == "") {
+            hoten.className = "loi";
+            loi += "Họ và tên không được bỏ trống.<br>";
+        } else hoten.className = "txt";
+
+        //kiểm tra email
+        var email = document.getElementById("email");
+        if (email.value == "") {
+            email.className = "loi";
+            loi += "Email không được bỏ trống.<br>";
+        }
+        //kiểm tra  phái : radio
+        dem = 0;
+        var arr_phai = document.getElementsByName("phai");
+        for (var i = 0; i < arr_phai.length; i++) {
+            if (arr_phai[i].checked) dem++;
+        }
+        if (dem == 0) {
+            document.getElementById("chonphai").className = "loi";
+            loi += "Phải chọn giới tính.<br>";
+        } else document.getElementById("chonphai").className = "";
+        //kiểm tra sở thích : checkbox
+        arr_sothich = document.getElementsByClassName("sothich");
+        dem = 0;
+        for (var i = 0; i < arr_sothich.length; i++) {
+            if (arr_sothich[i].checked) dem++;
+        }
+        if (dem == 0) {
+            document.getElementById("chonsothich").className = "loi";
+            loi += "Phải chọn ít nhất 1 sở thích.<br>";
+        } else document.getElementById("chonsothich").className = "";
+        // kiểm tra nghề nghiệp : select
+        var nghe = document.getElementById("quoctich");
+        if (nghe.value == 0) {
+            nghe.className = "loi";
+            loi += "Phải chọn một Quốc Tịch.<br>";
+        } else nghe.className = "txt";
+        // kiểm tra giới thiệu : textarea
+        var gt = document.getElementById('ghichu');
+        if (gt.value.length > 200) {
+            gt.className = "loi";
+            loi += "Ghi chú phải dưới 200 kí tự.<br>";
+        } else gt.className = "txt";
+
+        // trả về giá trị kiểm tra
+        if (loi != "") {
+            document.getElementById('baoloi').innerHTML = "<p>" + loi + "</p>";
+            return false;
+        }
+
+    }
+</script>

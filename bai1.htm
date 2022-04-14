@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>le ngoc hoang</title>
+    <link rel="stylesheet" href="css/giaipt.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h3>GIẢI PHƯƠNG TRÌNH ax <sup>2 </sup>+ bx + c = 0</h3>
+        <h2>Số lần giải: <span id="solangiai">0</span></h2>
+        <hr />
+        <form action="">
+            <input type="text" id="soa" placeholder="Nhâp số a" /> <br />
+            <input type="text" id="sob" placeholder="Nhâp số b" /> <br />
+            <input type="text" id="soc" placeholder="Nhâp số c" /> <br />
+            <button type="button" class="nut_khoa" id="btngiai" onclick="ptb2.ganbien();dem();error();" disabled>GIẢI PT</button>
+            <button type="button" class="nut" id="cs" onclick="choso();">CHO SỐ</button>
+            <button id="lammoi" ;>LÀM MỚI</button>
+        </form>
+        <div class="kq" id="ketqua"></div>
+
+        <div class="time">
+            <p id="hvn"></p>
+        </div>
+    </div>
+</body>
+<script src="js/bai1.js"></script>
+
+</html>

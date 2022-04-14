@@ -1,0 +1,85 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.boxcenter {
+    margin-top: 150px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.heading {
+    text-align: center;
+    color: #24a19c;
+    font-size: 25px;
+}
+
+.boxcenter form {
+    display: flex;
+    /* dàn cac thẻ con thanh hang dọc */
+    flex-direction: column;
+}
+
+.boxcenter form input {
+    padding: 15px 15px;
+    border: 1px solid #eee;
+    outline: none;
+    margin: 15px 0;
+    border-radius: 10px;
+    transition: all, 2s linear;
+}
+
+.boxcenter form input {
+    border: 1px solid #24a19c;
+}
+
+.boxcenter form button {
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #24a19c;
+    font-size: 18px;
+    font-weight: bold;
+    color: #24a19c;
+    border-radius: 10px;
+}
+
+.boxcenter form button:hover {
+    background: #24a19c;
+    color: white;
+}
+
+.link-login {
+    text-decoration: none;
+    color: black;
+}
+
+fieldset {
+    border-radius: 10px;
+    margin: 15px 0;
+    border: 1px solid #24a19c;
+}
+
+fieldset .st input label {
+    padding: 0 20px;
+    margin: 0 25px;
+    justify-content: space-around;
+}
+
+select {
+    border: 1px solid #24a19c;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+fieldset #gt {
+    margin: 10px 15px;
+    padding: 10px 20px;
+}
+
+textarea {
+    border: 1px solid #24a19c;
+    margin: 10px;
+    border-radius: 10px;
+}
